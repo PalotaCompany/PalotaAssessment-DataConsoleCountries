@@ -24,6 +24,7 @@ public static void main()   // create a main body functions
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
-</Project>                              
+</Project>   
+console.writteline("PalotaAnswer")
 }
 }                                      //curly bracket terminator
