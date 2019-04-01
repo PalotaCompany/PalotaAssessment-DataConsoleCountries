@@ -1,10 +1,17 @@
 using system;    // defines the system environment paltform
 
+using Newtonsoft.Json;                   // defines the script embedded
+using Newtonsoft.Json.Converters;        // defines the converting and parse of data to information
+using System.Runtime.Serialization;       // defines the runtime procedure 
+
 class test;       // defines the programme foundation
 
 namespace PalotaAnswer    // defines the naming of the programme
+
 {
+
 public static void main()   // create a main body functions
+
 {                                // curlrly bracket initiator
 
 <Project Sdk="Microsoft.NET.Sdk">    // defines the software development kit for the programme
