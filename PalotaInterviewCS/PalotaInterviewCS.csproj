@@ -1,12 +1,12 @@
-using system
+using system;    // defines the system environment paltform
 
-class test
+class test;       // defines the programme foundation
 
-namespace PalotaAnswer
+namespace PalotaAnswer    // defines the naming of the programme
 {
-public static void main()
-{
-<Project Sdk="Microsoft.NET.Sdk">
+public static void main()   // create a main body functions
+{                                // curlrly bracket initiator
+<Project Sdk="Microsoft.NET.Sdk">    // defines the software development kit for the programme
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -16,6 +16,6 @@ public static void main()
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
-</Project>
+</Project>                              
 }
-}
+}                                      //curly bracket terminator
