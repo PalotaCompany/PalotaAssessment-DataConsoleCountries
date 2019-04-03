@@ -1,11 +1,12 @@
-﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Runtime.Serialization;
+using System;                              // defines the envrinment platform
+class test;                              // defines programs class
+using Newtonsoft.Json;                   // defines the script embedded
+using Newtonsoft.Json.Converters;        // defines the converting and parse of data to information
+using System.Runtime.Serialization;       // defines the runtime procedure 
 
-namespace PalotaInterviewCS
+namespace PalotaInterviewCS                         //the program directive
 {
-    public partial class Country
+    public partial class Country                      // finding the countries files class
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -80,7 +81,7 @@ namespace PalotaInterviewCS
         public string Cioc { get; set; }
     }
 
-    public class Currency
+    public class Currency                               //finding and accepting currency class
     {
         [JsonProperty("code")]
         public string Code { get; set; }
@@ -107,7 +108,7 @@ namespace PalotaInterviewCS
         public string NativeName { get; set; }
     }
 
-    public class RegionalBloc
+    public class RegionalBloc                                        //short name accepting and declaring class for countries
     {
         [JsonProperty("acronym")]
         public string Acronym { get; set; }
@@ -122,7 +123,7 @@ namespace PalotaInterviewCS
         public string[] OtherNames { get; set; }
     }
 
-    public class Translations
+    public class Translations                                         //accepting and translating class for countries
     {
         [JsonProperty("de")]
         public string De { get; set; }
@@ -155,7 +156,7 @@ namespace PalotaInterviewCS
         public string Fa { get; set; }
     }
 
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(StringEnumConverter))]                          //converting and parsing region values 
     public enum Region
     {
         [EnumMember(Value = "")]
@@ -174,7 +175,7 @@ namespace PalotaInterviewCS
         Polar
     }
 
-    public partial class Country
+    public partial class Country                                           //parsing and conveting country class for serialization
     {
         public static Country[] FromJson(string json) => JsonConvert.DeserializeObject<Country[]>(json);
         public static string ToJson(Country[] self) => JsonConvert.SerializeObject(self);
