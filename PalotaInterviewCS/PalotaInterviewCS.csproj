@@ -1,4 +1,4 @@
-using system;    // defines the system environment paltform
+using system   // defines the system environment paltform
 
 using Newtonsoft.Json;                   // defines the script embedded
 using Newtonsoft.Json.Converters;        // defines the converting and parse of data to information
@@ -22,7 +22,7 @@ public static void main()   // create a main body functions
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />      //jason script supported version
   </ItemGroup>
 </Project>   
 console.writteline("PalotaAnswer")
