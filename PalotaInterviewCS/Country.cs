@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Runtime.Serialization;
+using System.Net.Http;
+using System.IO;
 
 namespace PalotaInterviewCS
 {
@@ -178,5 +180,35 @@ namespace PalotaInterviewCS
     {
         public static Country[] FromJson(string json) => JsonConvert.DeserializeObject<Country[]>(json);
         public static string ToJson(Country[] self) => JsonConvert.SerializeObject(self);
+
+        /// <summary>
+        /// As newton soft's documentation at https://www.newtonsoft.com/json/help/html/Performance.htm
+        /// if JSON is huge, Deserialize it using stream for better performance. 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public static Country[] FromJsonByUsingStream(string url)
+        {
+            try
+            {
+                Country[] countries = new Country[0];
+                HttpClient httpClient = new HttpClient();
+                using (Stream s = httpClient.GetStreamAsync(url).Result)
+                using (StreamReader sr = new StreamReader(s))
+                using (JsonReader reader = new JsonTextReader(sr))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+
+                    countries = serializer.Deserialize<Country[]>(reader);
+                }
+                return countries;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occurred while deserialization  \n {ex.Message} ");
+                throw ex;
+            }
+           
+        }
     }
 }
